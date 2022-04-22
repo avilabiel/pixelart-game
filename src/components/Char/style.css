@@ -1,0 +1,17 @@
+@keyframes sprite {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -1120px;
+  }
+}
+
+.char {
+  width: 140px;
+  height: 95px;
+  background: url("../../assets//monster/bringer-of-death.png");
+  animation: sprite 1.5s steps(8) infinite;
+  background-position: 95px 550px;
+  background-size: "100%";
+}
