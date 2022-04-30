@@ -1,4 +1,5 @@
-@keyframes sprite {
+/* Movie, 0 to left */
+@keyframes monster {
   from {
     background-position-x: 0px;
   }
@@ -7,11 +8,91 @@
   }
 }
 
-.char {
+/* position: 95px (xpos of sprite), 550px (ypos of sprite) */
+/* frameSize: x: 95px; y: 95px */
+.monster {
   width: 140px;
   height: 95px;
   background: url("../../assets//monster/bringer-of-death.png");
-  animation: sprite 1.5s steps(8) infinite;
-  background-position: 95px 550px;
+  animation: monster 1s steps(8) infinite;
+  background-position: 95px 0px;
   background-size: "100%";
+  transform: scaleX(-1);
+}
+
+.stopped {
+  background-position: 95px 280px;
+}
+
+.walking {
+  background-position: 95px 455px;
+}
+
+.pre-special-attack {
+  background-position: 95px 280px;
+}
+
+.special-attack {
+  width: 95px;
+  background-position: 95px 90px;
+}
+
+.die {
+  background-position: 95px 360px;
+}
+
+.right {
+  transform: scaleX(-1);
+}
+
+.left {
+  transform: scaleX(1);
+}
+
+.attack {
+  background-position: 95px 550px;
+}
+
+/* CHAR 16x16 */
+@keyframes char16 {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: 192px;
+  }
+}
+
+.char {
+  width: 24px;
+  height: 32px;
+  background: url("../../assets/char16/rpg_sprite_walk.png");
+  animation: char16 1s steps(8) infinite;
+  background-position: 0px 0px;
+  background-size: "100%";
+  transform: scaleX(-1);
+}
+
+.stopped {
+  animation: none !important;
+}
+
+.right {
+  animation: char16 1s steps(8) infinite;
+  background-position: 0px 64px;
+}
+
+.down {
+  animation: char16 1s steps(8) infinite;
+  background-position: 0px 0px;
+}
+
+.left {
+  animation: char16 1s steps(8) infinite;
+  background-position: 0px 32px;
+}
+
+.up {
+  animation: char16 1s steps(8) infinite;
+  background-position: 0px 96px;
 }
