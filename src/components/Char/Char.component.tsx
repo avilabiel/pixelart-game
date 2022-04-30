@@ -12,26 +12,26 @@ const W_KEY = 87;
 
 const CharComponent: React.FC<CharProps> = (props) => {
   const [classes, setClasses] = useState<string[]>(["stopped"]);
-  const [direction, setDirection] = useState<string>("right");
+  const [direction, setDirection] = useState<string>("down");
 
   useEffect(() => {
     const handleButtonPress = (event: any) => {
       console.log(`PRESSING: ${event.keyCode}`);
 
       if (event.keyCode === SPACE_KEY) {
-        setClasses([direction, "pre-special-attack"]);
+        setClasses(["pre-special-attack"]);
 
         setTimeout(() => {
-          setClasses([direction, "die"]);
+          setClasses(["die"]);
           setTimeout(() => {
-            setClasses([direction, "special-attack"]);
-            setTimeout(() => setClasses([direction]), 1000);
+            setClasses(["special-attack"]);
+            setTimeout(() => setClasses([]), 1000);
           }, 1000);
         }, 1000);
       }
 
       if (event.keyCode === P_KEY) {
-        setClasses([direction, "attack"]);
+        setClasses(["attack"]);
       }
 
       if (event.keyCode === A_KEY) {
@@ -58,7 +58,7 @@ const CharComponent: React.FC<CharProps> = (props) => {
     const stopActions = () => {
       console.log("STOP PRESSING!!!!");
 
-      setClasses([direction, "stopped"]);
+      setClasses(["stopped"]);
     };
 
     window.addEventListener("keydown", handleButtonPress);
@@ -68,12 +68,12 @@ const CharComponent: React.FC<CharProps> = (props) => {
       window.removeEventListener("keydown", handleButtonPress);
       window.removeEventListener("keyup", stopActions);
     };
-  }, [direction, classes]);
+  }, [classes]);
 
   return (
     <div>
       <h1>Char</h1>
-      <div className={"char " + classes.join(" ")}></div>
+      <div className={"char " + direction + " " + classes.join(" ")}></div>
     </div>
   );
 };
