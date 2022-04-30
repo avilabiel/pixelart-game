@@ -64,6 +64,7 @@
 }
 
 .char {
+  position: absolute;
   width: 24px;
   height: 32px;
   background: url("../../assets/char16/rpg_sprite_walk.png");
